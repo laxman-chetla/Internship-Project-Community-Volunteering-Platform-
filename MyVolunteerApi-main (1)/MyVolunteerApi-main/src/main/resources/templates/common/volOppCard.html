@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div th:fragment="card(volopp)">
+    <div class="col">
+        <div class="card" style="min-width:300px;">
+            <div class="card-body">
+                <h5 class="card-title text-primary" th:text="${volopp.title}">Food Drive for Homeless</h5>
+                <p class="card-text text-muted">
+                    <i class="bi bi-info-circle me-1"></i> <srpan th:text="${volopp.description}">
+                    Help us distribute food and essentials to those in
+                    need.
+                </srpan>
+                </p>
+                <p><i class="bi bi-geo-alt me-1"></i> <strong>Location : </strong> <span th:text="${volopp.location}"> </span></p>
+                <p><i class="bi bi-building me-1"></i> <strong>Organization : </strong>  <span th:text="${volopp.organizationName}"> </span></p>
+                <p><i class="bi bi-calendar-check me-1"></i> <strong>Registration Deadline : </strong> <span th:text="${volopp.deadLineForReg}"> </span></p>
+                <p><i class="bi bi-clock me-1"></i> <strong>Starts At : </strong><span th:text="${volopp.startsAt}"> </span></p>
+                <span th:text="${volopp.status}"  class="badge bg-success badge-status"></span>
+            </div>
+            <div class="card-footer">
+                <a th:href="@{/volunteerOpp/details/{taskId}(taskId=${volopp.taskId})}" class="btn btn-primary w-100 text-decoration-none">View Details</a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
